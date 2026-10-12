@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MP">
+  <rect width="64" height="64" fill="#291e22"/>
+  <path d="M0 0h64v8H0z" fill="#8d3540"/>
+  <text x="32" y="43" fill="#fff" font-family="Arial, sans-serif" font-size="27" font-weight="700" letter-spacing="-3" text-anchor="middle">MP</text>
+</svg>
