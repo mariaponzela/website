@@ -1,41 +1,51 @@
-# María Ponzela portfolio
+# Portafolio de María Ponzela
 
-This portfolio is a Hugo site. Its structure follows the `jorgeweb` example: page content in `content/`, shared templates in `layouts/`, files copied unchanged in `static/`, and source styles in `assets/`.
+## Acerca de
 
-## Local development
+Este portafolio presenta el trabajo de María Ponzela. Está construido con Hugo.
+El contenido de las páginas vive en `content/`, las plantillas compartidas en
+`layouts/`, los estilos fuente en `assets/` y los archivos que se copian sin
+cambios en `static/`.
 
-Install [Hugo Extended](https://gohugo.io/installation/), Node.js, and [Tox](https://tox.wiki/), then run:
+## Primeros pasos
+
+Instala [Hugo Extended](https://gohugo.io/installation/), Node.js y
+[Tox](https://tox.wiki/). Después, desde la raíz del proyecto, ejecuta:
 
 ```sh
 npm ci
 tox -e site-serve
 ```
 
-Open <http://localhost:1313>. Tox provides the same site automation pattern as `jorgeweb`:
+Abre <http://localhost:1313> para ver el sitio. También puedes iniciarlo con
+`npm run dev`.
 
-| Command | Action |
+## Guía de uso
+
+Las páginas principales están en `content/_index.html` y `content/*.html`; los
+casos de estudio están en `content/projects/*.html`. Edita el HTML de cada
+archivo para cambiar su contenido. El bloque YAML inicial contiene los
+metadatos de la página y los textos y enlaces del pie de página.
+
+Las rutas públicas son `/work.html`, `/about.html`, `/gallery.html`, `/contact.html` y `/projects/<nombre>.html`. Coloca imágenes, vídeos y documentos en `static/assets/` y enlázalos desde las páginas. La navegación y el pie de página compartidos están en `layouts/partials/`.
+
+## Desarrollo
+
+| Comando | Acción |
 | --- | --- |
-| `tox -e site-html` | Build the production site in `public/` |
-| `tox -e site-serve` | Serve it at <http://localhost:1313> |
-| `tox -e site-debug` | Serve with full renders and caches disabled |
-| `tox -e site-clean` | Remove the generated `public/` directory |
+| `tox -e site-html` | Genera el sitio de producción en `public/` |
+| `tox -e site-serve` | Inicia el servidor local en <http://localhost:1313> |
+| `tox -e site-debug` | Inicia el servidor con renderizado completo y sin caché |
+| `tox -e site-clean` | Elimina el directorio generado `public/` |
 
-Pass extra Hugo flags after `--`, for example `tox -e site-html -- --verbose`. The npm scripts remain available as `npm run dev` and `npm run build`.
+Puedes pasar opciones adicionales a Hugo después de `--`, por ejemplo `tox -e
+site-html -- --verbose`. También está disponible `npm run build`.
 
-## Structure
+Los estilos se editan en `assets/scss/main.scss`; Hugo Extended los compila y
+PostCSS los procesa. La plantilla de la página 404 y las redirecciones de rutas
+antiguas están en `layouts/404.html`.
 
-| Path | Purpose |
-| --- | --- |
-| `content/_index.html` | Homepage |
-| `content/*.html` | Work, about, explorations, and contact pages |
-| `content/projects/*.html` | Case studies |
-| `layouts/_default/` and `layouts/partials/` | Shared page frame, navigation, metadata, and footer |
-| `layouts/404.html` | Not-found page and redirects from old page names |
-| `assets/scss/main.scss` | Site styles, compiled by Hugo Extended, then processed by PostCSS |
-| `static/assets/` | Images, video, and PDFs |
-| `static/CNAME` | Custom domain for GitHub Pages |
-| `tox.ini` | Build, serve, debug, and clean automation |
-
-Page URLs remain `/work.html`, `/about.html`, `/gallery.html`, `/contact.html`, and `/projects/<name>.html`. Edit a page's HTML in its content file. The YAML front matter at the top holds page metadata and footer text and links. The header and stylesheet are maintained once in their respective templates and SCSS file.
-
-The GitHub Actions workflow builds on pushes to `main` and publishes `public/` to the `gh-pages` branch. Configure GitHub Pages to serve that branch from its root.
+El workflow de GitHub Actions publica `public/` en la rama `gh-pages`
+únicamente cuando se crea una etiqueta con el formato `vX.Y.Z`, donde `X`, `Y`
+y `Z` son números enteros (por ejemplo, `v1.2.3`). Configura GitHub Pages para
+servir la raíz de esa rama.
