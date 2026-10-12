@@ -1,0 +1,8 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{ if eq .Kind "404" }}<meta name="robots" content="noindex">{{ end }}
+<meta name="description" content="{{ .Description | default .Site.Params.description }}">
+<title>{{ if eq .Kind "404" }}Page not found — María Ponzela{{ else }}{{ .Title }}{{ end }}</title>
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+{{ $style := resources.Get "scss/main.scss" | toCSS (dict "targetPath" "css/main.css") | postCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">

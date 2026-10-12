@@ -1,0 +1,12 @@
+baseURL: "https://mariaponzela.com/"
+languageCode: "en-us"
+title: "María Ponzela"
+
+disableKinds:
+  - section
+  - taxonomy
+  - term
+  - RSS
+
+params:
+  description: "María Ponzela is a Madrid-based product designer working across UX research, digital products, design systems and visual identity."

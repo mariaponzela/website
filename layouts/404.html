@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {{ partial "head.html" . }}
+  <script>
+    const oldPages = {
+      "about.html": "about.html",
+      "chat.html": "contact.html",
+      "coinhabit.html": "projects/coinhabit.html",
+      "gallery.html": "gallery.html",
+      "side.html": "work.html",
+      "bbva.html": "projects/bbva.html"
+    };
+    const currentPath = window.location.pathname;
+    const filename = currentPath.slice(currentPath.lastIndexOf("/") + 1).toLowerCase();
+    const destination = oldPages[filename];
+    if (destination) {
+      window.location.replace("{{ "" | relURL }}" + destination + window.location.search + window.location.hash);
+    }
+  </script>
+</head>
+<body>
+  <main class="page-intro shell">
+    <p class="eyebrow">404 / Page not found</p>
+    <h1>That page has moved.</h1>
+    <p class="lead">The link may be outdated. You can find the portfolio from the homepage.</p>
+    <a class="button" href="{{ "" | relURL }}">Go to the homepage <span aria-hidden="true">↗</span></a>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<header class="site-header">
+  <div class="header-inner shell">
+    <a class="brand" href="{{ "" | relURL }}" aria-label="María Ponzela, home"><span class="brand-mark">MP</span><span>María<br>Ponzela</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="{{ "work.html" | relURL }}"{{ if eq .Params.nav "work" }} aria-current="page"{{ end }}>Work</a>
+      <a href="{{ "about.html" | relURL }}"{{ if eq .Params.nav "about" }} aria-current="page"{{ end }}>About</a>
+      <a href="{{ "gallery.html" | relURL }}"{{ if eq .Params.nav "gallery" }} aria-current="page"{{ end }}>Explorations</a>
+    </nav>
+    <div class="header-contact"><a class="button" href="{{ "contact.html" | relURL }}"{{ if eq .Params.nav "contact" }} aria-current="page"{{ end }}>Get in touch <span aria-hidden="true">↗</span></a></div>
+  </div>
+</header>

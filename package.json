@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "hugo server",
+    "build": "hugo --minify"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.0",
+    "postcss-nested": "^6.2.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Safari >= 10",
+    "Firefox ESR",
+    "not dead"
+  ]
+}
